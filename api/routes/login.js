@@ -10,7 +10,7 @@ const router = express.Router();
 //       need to check in DB if user is privilage user(admin)
 //       and have right to read from protected routs
 // output: token
-router.post('/', (req, res, next) => {
+router.post('/', async(req, res, next) => {
     try {
         let user = req.body;
         // Sign with default (HMAC SHA256)
