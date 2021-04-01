@@ -55,7 +55,7 @@ function ensureToken(req, res, next) {
 //body example: {"id":4, "name": "product4","price": 17.5 }
 //output: created! string or error Product id already exists!
 //description: insert new product
-router.post('/', ensureToken, (req, res, next) => {
+router.post('/', ensureToken, async(req, res, next) => {
     try {
         //Product id already exists - 
         //do not accidentally delete product data
@@ -76,7 +76,7 @@ router.post('/', ensureToken, (req, res, next) => {
 //body example: {"name": "product4","price": 17.5 }
 //output: errors or updated!
 //description: update exist product
-router.put('/:id', ensureToken, (req, res, next) => {
+router.put('/:id', ensureToken, async(req, res, next) => {
     try {
         const { id } = req.params;
         //Product id already exists - don't accidentally delete product data
